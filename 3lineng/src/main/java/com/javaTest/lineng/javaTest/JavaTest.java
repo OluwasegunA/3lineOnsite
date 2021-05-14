@@ -16,10 +16,10 @@ public class JavaTest {
 
     private String authorization;
     private String appKey;
-    private String timeStamp;
+    private Date timeStamp;
     private int Id;
 
-    public JavaTest(String authorization, String appKey, String timeStamp) {
+    public JavaTest(String authorization, String appKey, Date timeStamp) {
         this.Id = Id;
         this.authorization = authorization;
         this.appKey = appKey;
@@ -50,11 +50,11 @@ public class JavaTest {
         this.appKey = appKey;
     }
 
-    public String getTimeStamp() {
+    public Date getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(String timeStamp) {
+    public void setTimeStamp(Date timeStamp) {
         this.timeStamp = timeStamp;
     }
 

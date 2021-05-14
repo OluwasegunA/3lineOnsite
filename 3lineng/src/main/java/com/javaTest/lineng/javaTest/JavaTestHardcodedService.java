@@ -28,7 +28,7 @@ public class JavaTestHardcodedService {
     
     
     static{
-        testauth.add(new JavaTest("4n+F7tDHDaFCoPkDDCtHMX6fvNIolyzMLFONT5c4XSYBg7VYFg1uMDYW7b3wDOs+rKL4QjaY2A100Jufsg1XFA==", "test_20191123132233", "1617953042"));
+        testauth.add(new JavaTest("4n+F7tDHDaFCoPkDDCtHMX6fvNIolyzMLFONT5c4XSYBg7VYFg1uMDYW7b3wDOs+rKL4QjaY2A100Jufsg1XFA==", "test_20191123132233", new Date()));
         
     }
     
@@ -47,7 +47,7 @@ public class JavaTestHardcodedService {
         return null;
     }
     
-    public static String hashAppKeyAndTimeStamp(String appKey, String timeStamp, String salt){
+    public static String hashAppKeyAndTimeStamp(String appKey, Date timeStamp, String salt){
         String generatedHash = null;
         String valueToHash = appKey + timeStamp;
         try {
@@ -65,7 +65,7 @@ public class JavaTestHardcodedService {
         return generatedHash;
     }
     
-    public JavaTest findWithAuth(String appKey, String timeStamp, String hashed) {
+    public JavaTest findWithAuth(String appKey, Date timeStamp, String hashed) {
         for (JavaTest test : testauth){
             String authorization = JavaTestHardcodedService.hashAppKeyAndTimeStamp(appKey, timeStamp, "3line");
             if (authorization == hashed) {
@@ -74,5 +74,10 @@ public class JavaTestHardcodedService {
                           
         }
         return null;
+    }
+    
+    public static void main(String[] args) {
+        JavaTestHardcodedService myTest = new JavaTestHardcodedService();
+        System.out.println(myTest.findWithAuth("test_20191123132233", new Date(), "4n+F7tDHDaFCoPkDDCtHMX6fvNIolyzMLFONT5c4XSYBg7VYFg1uMDYW7b3wDOs+rKL4QjaY2A100Jufsg1XFA=="));
     }
 }
