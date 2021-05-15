@@ -78,6 +78,13 @@ public class JavaTestHardcodedService {
     
     public static void main(String[] args) {
         JavaTestHardcodedService myTest = new JavaTestHardcodedService();
-        System.out.println(myTest.findWithAuth("test_20191123132233", new Date(), "4n+F7tDHDaFCoPkDDCtHMX6fvNIolyzMLFONT5c4XSYBg7VYFg1uMDYW7b3wDOs+rKL4QjaY2A100Jufsg1XFA=="));
+       
+       if(myTest.findWithAuth("test_20191123132233", new Date(), "4n+F7tDHDaFCoPkDDCtHMX6fvNIolyzMLFONT5c4XSYBg7VYFg1uMDYW7b3wDOs+rKL4QjaY2A100Jufsg1XFA==") == null) {
+           System.out.println("Invalid Authorization key");          
+       }
+       else{
+           System.out.println(myTest.findWithAuth("test_20191123132233", new Date(), "4n+F7tDHDaFCoPkDDCtHMX6fvNIolyzMLFONT5c4XSYBg7VYFg1uMDYW7b3wDOs+rKL4QjaY2A100Jufsg1XFA=="));
+       }
+        
     }
 }
